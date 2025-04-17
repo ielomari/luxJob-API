@@ -39,9 +39,9 @@ add_bearer_auth <- function(api, paths = NULL) {
 # ------------------------------------------------------------------------------
 
 # Load your token checker helper
-source("api/R/auth_helper.R")
+source("auth_helper.R")
 
 # Load the plumber file
-pr("api/app/plumber.R") |>
+pr("plumber.R") |>
   pr_set_api_spec(add_bearer_auth) |>
-  pr_run(port = 8000, host = "0.0.0.0")
+  pr_run(port = 8080, host = "0.0.0.0")

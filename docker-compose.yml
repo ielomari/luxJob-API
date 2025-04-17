@@ -1,33 +1,9 @@
-version: "3.9"
-
 services:
-  luxjob-api:
-    build: .
-    ports:
-      - "8000:8000"
-    env_file:
-      - .Renviron
-    depends_on:
-      - postgres-db
-    networks:
-      - luxnet
-
-  postgres-db:
-    image: postgres:15
-    restart: always
-    environment:
-      POSTGRES_DB: postgres
-      POSTGRES_USER: ibtissam
-      POSTGRES_PASSWORD: motdepassefort
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    networks:
-      - luxnet
-
-volumes:
-  postgres_data:
-
-networks:
-  luxnet:
+    rimage:
+        restart: unless-stopped
+        ports:
+            - '8080:8080'
+        env_file:
+            - app/.Renviron
+        image: plumber_image:latest
+        container_name: plumber_api
