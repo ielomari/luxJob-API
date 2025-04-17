@@ -1,0 +1,6 @@
+.Rproj.user
+.git
+.Rhistory
+.RData
+.DS_Store
+*.tar.gz
